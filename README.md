@@ -1,6 +1,6 @@
 # Conway's Game of Life Challenge
 
-![](https://upload.wikimedia.org/wikipedia/commons/6/64/Trefoil_knot_conways_game_of_life.gif)
+![image](https://user-images.githubusercontent.com/56927809/83430468-58ca6780-a3fb-11ea-9be7-c0cc071903d9.png)
 
 ##About
 
