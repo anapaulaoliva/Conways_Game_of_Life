@@ -2,7 +2,7 @@
 
 ![image](https://user-images.githubusercontent.com/56927809/83430468-58ca6780-a3fb-11ea-9be7-c0cc071903d9.png)
 
-##About
+## About
 
 This is about Conway's brainchild, a fantastic solitaire pastime he calls "life". Because of its analogies with the rise, fall and alternations of a society of living organisms, it belongs to a growing class of what are called "simulation games"--games that resemble real-life processes.
 
