@@ -14,6 +14,7 @@ const Board = () => {
         [0, 1],
         [0, -1],
         [1, -1],
+        [-1, 1],
         [1, 1],
         [-1, -1],
         [1, 0],
@@ -66,7 +67,7 @@ const Board = () => {
                             //current position dies.
                             gridCopy[i][j] = 0;
                         //Conditional for the "birth" of a cell
-                        } else if (g[i][j] == 0 && neighbors == 3) {
+                        } else if (g[i][j] === 0 && neighbors === 3) {
                             //current position lives.
                             gridCopy[i][j] = 1;
                         }
