@@ -4,7 +4,7 @@ import Footer from './components/FooterComponent';
 
 function App() {
   return (
-      <div class="App">
+      <div className="App">
         <header>Game of Life</header>
         <Game/>
         <Footer/>
