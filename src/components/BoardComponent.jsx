@@ -29,19 +29,7 @@ const Board = () => {
         [-1, 0]
     ]
 
-    const generateEmptyGrid = () => {
-
-        const rows = [];
-        for (let i = 0; i < numRows; i++) {
-            rows.push(Array.from(Array(numCols), () => 0))
-        }
-
-        return rows;
-    };
-    
-    const [grid, setGrid] = useState(() => {
-        return generateEmptyGrid();
-    });
+    const [grid, setGrid] = useState(Array(numRows).fill(Array(numCols).fill(0)));
 
     const [running, setRunning] = useState(false);
 
@@ -135,11 +123,7 @@ const Board = () => {
                             runSimulation();
                             break;
                     }
-                    /*if(!running){
-                        runningRef.current = true;
-                        runSimulation();
-                    }*/
-                    }}
+                }}
                 >
                 {   //Dynamic rendering of play/pause button
                     running ? <FontAwesomeIcon 
@@ -170,9 +154,9 @@ const Board = () => {
                         style={{color: "whitesmoke"}}
                         />
                 </button>
-                
+
                 <button onClick={()=>{
-                    setGrid(generateEmptyGrid());
+                    setGrid(Array(numRows).fill(Array(numCols).fill(0)));
                     setGeneration(counter = 0);
                 }}>
                     <img
