@@ -1,5 +1,8 @@
 import React, { useState, useCallback, useRef } from 'react';
 import produce from 'immer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay, faPause, faRandom, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import ClearIcon from '../assets/clear-icon.png';
 import BoardStyle from '../styles/Board.module.css';
 
 
@@ -86,41 +89,62 @@ const Board = () => {
     }, []);
 
     return (
-        <>
-            <button onClick={()=>{
-                setRunning(!running);
-                /*checking through button's state to switch between true or false
-                given the actual state -ref- of the button*/
-                if(!running){
-                    runningRef.current = true;
-                    runSimulation();
+        <>  
+            <section className={BoardStyle.Controls}>
+                <button onClick={()=>{
+                    setRunning(!running);
+                    /*checking through button's state to switch between true or false
+                    given the actual state -ref- of the button*/
+                    if(!running){
+                        runningRef.current = true;
+                        runSimulation();
+                    }
+                    }}
+                >
+                {running ? <FontAwesomeIcon 
+                            icon = {faPause} 
+                            size="lg" 
+                            style={{color: "whitesmoke"}}
+                            /> 
+                        : <FontAwesomeIcon 
+                            icon ={faPlay} 
+                            size="lg" 
+                            style={{color: "whitesmoke"}}
+                            />
                 }
-                }}
-            >
-            {running ? 'stop' : 'start'}
-            </button>
-            <button onClick={()=>{
-                const rows = [];
-                for (let i = 0; i < numRows; i++) {
-                    rows.push(Array.from(Array(numCols), () => 
-                        Math.random() > 0.8 ? 1 : 0))
-                }
-                setGrid(rows);
-            }}>
-                random
-            </button>
-            <button onClick={()=>{
-                setGrid(generateEmptyGrid());
-            }}>
-                clear
-            </button>
+                </button>
+                <button onClick={()=>{
+                    const rows = [];
+                    for (let i = 0; i < numRows; i++) {
+                        rows.push(Array.from(Array(numCols), () => 
+                            Math.random() > 0.8 ? 1 : 0))
+                    }
+                    setGrid(rows);
+                }}>
+                    <FontAwesomeIcon 
+                        icon ={faRandom} 
+                        size="lg"
+                        style={{color: "whitesmoke"}}
+                        />
+                </button>
+                <button onClick={()=>{
+                    setGrid(generateEmptyGrid());
+                }}>
+                    <img
+                        className={BoardStyle.CleanIcon}
+                        src={ClearIcon}
+                        alt="clear-icon"
+                    />
+                </button>
+            </section>
+
             <main style={{
                 gridTemplateColumns: `repeat(${numCols}, 15px)`
             }}>
                 {grid.map((rows, i) =>
                     rows.map((col, j) => (
                         <div
-                        className={BoardStyle.cell}
+                        className={BoardStyle.Cell}
                         key={`${i}-${j}`} 
                         onClick={() => {
                             const newGrid = produce(grid, gridCopy => {
@@ -135,6 +159,17 @@ const Board = () => {
                     ))
                 )}
             </main>
+
+            <button onClick={() => {
+            
+            }}
+            >
+                <FontAwesomeIcon 
+                    icon={ faInfoCircle } 
+                    size="lg"
+                    style={{color: "#845ef7"}}
+                />
+            </button>
         </>
     );
 };

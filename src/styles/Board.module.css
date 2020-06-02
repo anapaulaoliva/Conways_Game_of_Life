@@ -8,8 +8,26 @@ main {
     margin: 1em;
 }
 
-.cell {
+.Cell {
     width: 15;
     height: 15;
     border: solid 1px rgb(54, 53, 90);
+}
+
+.Controls {
+    min-width: 20vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.CleanIcon {
+    width: 25px;
+    height: 25px;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
