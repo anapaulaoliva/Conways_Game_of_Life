@@ -18,16 +18,16 @@ Conways genetic laws are delightfully simple. First note that each cell of the c
 
 #### 1. Births 
 Each empty cell adjacent to exactly three neighbors--no more, no fewer--is a birth cell. A counter is placed on it at the next move.
-![1](https://user-images.githubusercontent.com/56927809/83445074-f335a580-a411-11ea-8dac-4f2daad1ddaa.JPG)
+![1](https://user-images.githubusercontent.com/56927809/83491384-4db51d00-a477-11ea-83c0-08536f8b20e2.JPG)
 
 #### 2. Survivals.
 Every counter with two or three neighboring counters survives for the next generation.
-![2](https://user-images.githubusercontent.com/56927809/83445080-f597ff80-a411-11ea-87e4-b2a8de6e9e1e.JPG)
+![2](https://user-images.githubusercontent.com/56927809/83491394-5148a400-a477-11ea-96bc-66a7262fccf9.JPG)
 
 #### 3. Deaths. 
 Each counter with four or more neighbors dies (is removed) from overpopulation. Every counter with one neighbor or none dies from isolation.
 
-![3](https://user-images.githubusercontent.com/56927809/83445086-f761c300-a411-11ea-99ad-4bb794184d74.JPG)
+![3](https://user-images.githubusercontent.com/56927809/83491402-53126780-a477-11ea-9d94-f920bfbf94c7.JPG)
 
 ### Prototype 
 
@@ -39,6 +39,11 @@ Made with Figma. Helps to the process of building component's and view of the ga
 
 Made with LudidChart. You can find the link [here](https://bit.ly/36PdlmV).
 ![automatcellsdiagramflow](https://user-images.githubusercontent.com/56927809/83443782-ec0d9800-a40f-11ea-9e8e-970446b9db58.JPG)
+
+### Demo
+
+![automatcellsgif](https://user-images.githubusercontent.com/56927809/83489804-9e774680-a474-11ea-8c83-a245c34bcda5.gif)
+
 
 ##### Resources
 
