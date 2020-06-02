@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import BoardStyle from '../styles/Board.module.css';
 
 const Board = () => {
-    const numRows = 10;
-    const numCols = 10;
+    const numRows = 20;
+    const numCols = 20;
 
     const [grid, setGrid] = useState(() => {
         const rows = [];
@@ -17,16 +17,16 @@ const Board = () => {
     console.log(grid);
 
     return (
-        <main>
+        <main style={{
+            gridTemplateColumns: `repeat(${numCols}, 15px)`
+        }}>
             {grid.map((rows, i) =>
                 rows.map((col, j) => (
                     <div
+                    className={BoardStyle.cell}
                     key={`${i}-${j}`} 
                     style={{
-                        width: 5, 
-                        height: 5,
-                        backgroundColor: grid[i][j] ? 'pink' : undefined,
-                        border: "solid 1px black"
+                        backgroundColor: grid[i][j] ? 'pink' : undefined
                     }} 
                     />
                 ))
