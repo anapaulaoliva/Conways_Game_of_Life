@@ -9,6 +9,7 @@ const Game = () => {
         <div className="App">
             <Controls/>
             <Board/>
+            
         </div>
         </>
     );
