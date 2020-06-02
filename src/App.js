@@ -1,10 +1,14 @@
 import React from 'react';
-import './App.css';
+import Game from './components/GameComponent';
+import Footer from './components/FooterComponent';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+      <div class="App">
+        <header>Game of Life</header>
+        <Game/>
+        <Footer/>
+      </div>
   );
 }
 

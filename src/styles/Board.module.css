@@ -1,0 +1,7 @@
+main {
+    background-color: rgb(51,50,82);
+    border: 8px solid rgb(132,110,141);
+    min-width: 30vw;
+    min-height: 30vw;
+    border-radius: 5px;
+}
