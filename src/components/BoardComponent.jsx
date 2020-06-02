@@ -11,6 +11,9 @@ const Board = () => {
     const numRows = 30;
     const numCols = 30;
 
+    let counter = 0;
+    const [generation, setGeneration] = useState(counter);
+
     /*conditionals for all the neighbor cells
     of the current cell that we are iterating through
     are stored represented as a 2d array*/
@@ -27,6 +30,7 @@ const Board = () => {
     ]
 
     const generateEmptyGrid = () => {
+
         const rows = [];
         for (let i = 0; i < numRows; i++) {
             rows.push(Array.from(Array(numCols), () => 0))
@@ -45,6 +49,9 @@ const Board = () => {
     runningRef.current = running;
 
     const runSimulation = useCallback(() => {
+        setGeneration(counter)
+        counter++;
+        console.log(`corresimulacion time: ${counter}`)
         if (!runningRef.current) {
             return;
         }
@@ -53,6 +60,7 @@ const Board = () => {
         gridCopy expected to mutate*/
         setGrid((g) => {
             return produce(g, gridCopy => {
+
                 //for loops go through every single cell of the grid
                 for (let i = 0; i < numRows; i++) {
                     for (let j = 0; j < numCols; j++) {
@@ -70,6 +78,7 @@ const Board = () => {
                                     //counter of how many neighbors the cell has
                                     neighbors += g[newI][newJ]
                                 }
+
                         })
                         //Conditional for the death of a cell
                         if (neighbors < 2 || neighbors > 3) {
@@ -80,11 +89,11 @@ const Board = () => {
                             //current position lives.
                             gridCopy[i][j] = 1;
                         }
-
                     }
                 }
             });
         });
+        //setGeneration(generation+3);
         //calling the function itself each 300ms        
         setTimeout(runSimulation, 200);
     }, []);
@@ -121,6 +130,7 @@ const Board = () => {
                             Math.random() > 0.8 ? 1 : 0))
                     }
                     setGrid(rows);
+                    setGeneration(counter = 0);
                 }}>
                     <FontAwesomeIcon 
                         icon ={faRandom} 
@@ -130,6 +140,7 @@ const Board = () => {
                 </button>
                 <button onClick={()=>{
                     setGrid(generateEmptyGrid());
+                    setGeneration(counter = 0);
                 }}>
                     <img
                         className={ControlsStyle.CleanIcon}
@@ -163,7 +174,9 @@ const Board = () => {
 
             <section>
                 <span>g e n</span>
-                <div className={ControlsStyle.Gen}></div>
+                <div className={ControlsStyle.Gen}>
+                    <p> { generation } </p>
+                </div>
             </section>
 
             <button onClick={() => {

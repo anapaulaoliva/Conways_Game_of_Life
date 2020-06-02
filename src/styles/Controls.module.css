@@ -20,12 +20,16 @@ button {
     background-color: rgb(38,38,64);
     border: 4px solid rgb(132,110,141);
     border-radius: 10px;
-    min-width: 5vw;
-    min-height: 2vw;
+    min-width: 4vw;
+    min-height: 1vw;
     margin: .5em;
 }
 
 span {
     font-size: 10px;
 
+}
+
+p{
+    font-size: 10px;
 }
