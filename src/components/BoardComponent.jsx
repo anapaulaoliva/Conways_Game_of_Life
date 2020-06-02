@@ -2,6 +2,7 @@ import React, { useState, useCallback, useRef } from 'react';
 import produce from 'immer';
 import BoardStyle from '../styles/Board.module.css';
 
+
 const Board = () => {
     const numRows = 30;
     const numCols = 30;
@@ -21,13 +22,17 @@ const Board = () => {
         [-1, 0]
     ]
 
-    const [grid, setGrid] = useState(() => {
+    const generateEmptyGrid = () => {
         const rows = [];
         for (let i = 0; i < numRows; i++) {
             rows.push(Array.from(Array(numCols), () => 0))
         }
 
         return rows;
+    };
+    
+    const [grid, setGrid] = useState(() => {
+        return generateEmptyGrid();
     });
 
     const [running, setRunning] = useState(false);
@@ -76,8 +81,8 @@ const Board = () => {
                 }
             });
         });
-        //calling the function itself each 1000ms        
-        setTimeout(runSimulation, 1000);
+        //calling the function itself each 300ms        
+        setTimeout(runSimulation, 200);
     }, []);
 
     return (
@@ -93,6 +98,21 @@ const Board = () => {
                 }}
             >
             {running ? 'stop' : 'start'}
+            </button>
+            <button onClick={()=>{
+                const rows = [];
+                for (let i = 0; i < numRows; i++) {
+                    rows.push(Array.from(Array(numCols), () => 
+                        Math.random() > 0.8 ? 1 : 0))
+                }
+                setGrid(rows);
+            }}>
+                random
+            </button>
+            <button onClick={()=>{
+                setGrid(generateEmptyGrid());
+            }}>
+                clear
             </button>
             <main style={{
                 gridTemplateColumns: `repeat(${numCols}, 15px)`

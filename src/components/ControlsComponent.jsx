@@ -4,8 +4,7 @@ import ControlsStyle from '../styles/Controls.module.css';
 const Controls = () => {
     return (
         <section>
-            <button>random</button>
-            <button>clear</button>
+            
         </section>
     );
 };
