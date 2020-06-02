@@ -17,8 +17,21 @@ const Board = () => {
     console.log(grid);
 
     return (
-
-        <main>Board with squares</main>
+        <main>
+            {grid.map((rows, i) =>
+                rows.map((col, j) => (
+                    <div
+                    key={`${i}-${j}`} 
+                    style={{
+                        width: 5, 
+                        height: 5,
+                        backgroundColor: grid[i][j] ? 'pink' : undefined,
+                        border: "solid 1px black"
+                    }} 
+                    />
+                ))
+            )}
+        </main>
     );
 };
 
