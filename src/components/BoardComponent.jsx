@@ -107,9 +107,43 @@ const Board = () => {
         setTimeout(runSimulation, 200);
     }, []);
 
+    const simulateButton = () => {
+        setRunning(!running);
+        /*checking through button's state to switch between true or false
+        given the actual state -ref- of the button*/
+        switch(!running) {
+            case (!running):
+                runningRef.current = true;
+                runSimulation();
+                break;
+        }
+    };
+
+    const randomizeButton = () => {
+        const rows = [];
+            for (let i = 0; i < numRows; i++) {
+                rows.push(Array.from(Array(numCols), () => 
+                    Math.random() > 0.8 ? 1 : 0))
+            }
+            setGrid(rows);
+            setGeneration(counter = 0);
+    };
+
+    const clearButton = () => {
+        setGrid(generateEmptyGrid());
+        setGeneration(counter = 0);
+    };
+
     return (
         <>  
-            <Controls/>
+            <Controls
+                handlers={{
+                    simulate: simulateButton,
+                    random: randomizeButton,
+                    clear: clearButton
+                }}
+            />
+
             <main style={{
                 gridTemplateColumns: `repeat(${numCols}, 15px)`
             }}>
