@@ -51,7 +51,10 @@ const Board = () => {
     const runSimulation = useCallback(() => {
         setGeneration(counter)
         counter++;
-        console.log(`corresimulacion time: ${counter}`)
+        console.log(`corresimulacion time: ${counter}`);
+        
+        /*TODO:return !runningRef.current ? null
+            :*/
         if (!runningRef.current) {
             return;
         }
@@ -71,16 +74,38 @@ const Board = () => {
                             const newI = i + x;
                             const newJ = j + y;
                             //conditionals to delimitate checking above or below the grid values
-                            if (newI >= 0 &&
+
+                            /*TODO:switch(newI, newJ) {
+                                case (newI > 0 && newI < numRows 
+                                    && newJ >= 0 && newJ < numCols):
+                                    neighbors+= g[newI][newJ]
+                                    break;
+                            }*/
+
+                            /*TODO:neighbors+= g[newI][newJ] ?
+                                newI > 0 &&
                                 newI < numRows &&
                                 newJ >= 0 &&
-                                newJ < numCols) {
+                                newJ < numCols*/
+                                
+                            if (newI >= 0 && newI < numRows && newJ >= 0 && newJ < numCols) {
                                     //counter of how many neighbors the cell has
                                     neighbors += g[newI][newJ]
                                 }
 
                         })
                         //Conditional for the death of a cell
+                        /*TODO:switch(neighbors) {
+                            case (neighbors < 2 || neighbors > 3):
+                                gridCopy[i][j] = 0;
+                                break;
+                            case(g[i][j] === 0 && neighbors === 3):
+                                gridCopy[i][j] = 1;
+                                break;
+                        }*/
+                        /*TODO:return (neighbors < 1 || neighbors > 3) ? gridCopy[i][j] = 0 
+                        : (g[i][j] === 0 && neighbors === 3) ? gridCopy[i][j] = 1;*/
+
                         if (neighbors < 2 || neighbors > 3) {
                             //current position dies.
                             gridCopy[i][j] = 0;
@@ -93,7 +118,6 @@ const Board = () => {
                 }
             });
         });
-        //setGeneration(generation+3);
         //calling the function itself each 300ms        
         setTimeout(runSimulation, 200);
     }, []);
@@ -105,13 +129,20 @@ const Board = () => {
                     setRunning(!running);
                     /*checking through button's state to switch between true or false
                     given the actual state -ref- of the button*/
-                    if(!running){
+                    switch(!running) {
+                        case (!running):
+                            runningRef.current = true;
+                            runSimulation();
+                            break;
+                    }
+                    /*if(!running){
                         runningRef.current = true;
                         runSimulation();
-                    }
+                    }*/
                     }}
                 >
-                {running ? <FontAwesomeIcon 
+                {   //Dynamic rendering of play/pause button
+                    running ? <FontAwesomeIcon 
                             icon = {faPause} 
                             size="lg" 
                             style={{color: "whitesmoke"}}
@@ -123,6 +154,7 @@ const Board = () => {
                             />
                 }
                 </button>
+
                 <button onClick={()=>{
                     const rows = [];
                     for (let i = 0; i < numRows; i++) {
@@ -138,6 +170,7 @@ const Board = () => {
                         style={{color: "whitesmoke"}}
                         />
                 </button>
+                
                 <button onClick={()=>{
                     setGrid(generateEmptyGrid());
                     setGeneration(counter = 0);
