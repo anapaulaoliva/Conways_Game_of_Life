@@ -1,14 +1,14 @@
 import React from 'react';
 import ghLogo from '../assets/github-logo.JPG';
-import Style from '../styles/Footer.module.css';
+import FooterStyle from '../styles/Footer.module.css';
 
 const Footer = () => {
     return (
         
-        <footer className={Style.Footer}>
+        <footer className={FooterStyle.Footer}>
                 <img
                     src={ghLogo}
-                    className={Style.ghLogo}
+                    className={FooterStyle.ghLogo}
                     alt="github-logo"
                 />
                 <a

@@ -1,11 +1,12 @@
 import React from 'react';
+import Board from './BoardComponent';
 import '../App.css';
 
 const Game = () => {
     return (
         <>
         <div className="App">
-            <p>hola</p>
+            <Board/>
         </div>
         </>
     );

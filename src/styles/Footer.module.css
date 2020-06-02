@@ -12,4 +12,7 @@ footer {
 a {
     text-decoration: none;
     color: whitesmoke;
+    cursor: pointer;
+    font-size: 12px;
+    align-self: center;
 }
