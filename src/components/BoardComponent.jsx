@@ -24,7 +24,24 @@ const Board = () => {
         if (!runningRef.current) {
             return;
         }
-        //simulate
+        /*update states in 
+        g: current value of the grid
+        gridCopy expected to mutate*/
+        setGrid((g) => {
+            return produce(g, gridCopy => {
+                //for loops go through every single cell of the grid
+                for (let i = 0; i < numRows; i++) {
+                    for (let j = 0; j < numCols; j++) {
+                        //compute neighbors
+                        let neighbors = 0;
+                        /*conditionals for all the neighbor cells
+                        of the current cell that we are iterating through*/
+
+                    }
+                }
+            });
+        });
+        //calling the function itself each 1000ms        
         setTimeout(runSimulation, 1000);
     }, []);
 
