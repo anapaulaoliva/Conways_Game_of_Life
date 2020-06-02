@@ -6,6 +6,20 @@ const Board = () => {
     const numRows = 30;
     const numCols = 30;
 
+    /*conditionals for all the neighbor cells
+    of the current cell that we are iterating through
+    are stored represented as a 2d array*/
+    const operations = [
+        //x,y values
+        [0, 1],
+        [0, -1],
+        [1, -1],
+        [1, 1],
+        [-1, -1],
+        [1, 0],
+        [-1, 0]
+    ]
+
     const [grid, setGrid] = useState(() => {
         const rows = [];
         for (let i = 0; i < numRows; i++) {
@@ -34,8 +48,28 @@ const Board = () => {
                     for (let j = 0; j < numCols; j++) {
                         //compute neighbors
                         let neighbors = 0;
-                        /*conditionals for all the neighbor cells
-                        of the current cell that we are iterating through*/
+                        //checking each condition given in the array
+                        operations.forEach(([x,y]) => {
+                            const newI = i + x;
+                            const newJ = j + y;
+                            //conditionals to delimitate checking above or below the grid values
+                            if (newI >= 0 &&
+                                newI < numRows &&
+                                newJ >= 0 &&
+                                newJ < numCols) {
+                                    //counter of how many neighbors the cell has
+                                    neighbors += g[newI][newJ]
+                                }
+                        })
+                        //Conditional for the death of a cell
+                        if (neighbors < 2 || neighbors > 3) {
+                            //current position dies.
+                            gridCopy[i][j] = 0;
+                        //Conditional for the "birth" of a cell
+                        } else if (g[i][j] == 0 && neighbors == 3) {
+                            //current position lives.
+                            gridCopy[i][k] = 1;
+                        }
 
                     }
                 }
