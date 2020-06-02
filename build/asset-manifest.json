@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.523f09c5.chunk.css",
-    "main.js": "/static/js/main.e13d1641.chunk.js",
-    "main.js.map": "/static/js/main.e13d1641.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.7c0ae09a.js",
-    "runtime-main.js.map": "/static/js/runtime-main.7c0ae09a.js.map",
-    "static/js/2.2f5ef2c2.chunk.js": "/static/js/2.2f5ef2c2.chunk.js",
-    "static/js/2.2f5ef2c2.chunk.js.map": "/static/js/2.2f5ef2c2.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.8d726d2804007291653122599683db1c.js": "/precache-manifest.8d726d2804007291653122599683db1c.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.523f09c5.chunk.css.map": "/static/css/main.523f09c5.chunk.css.map",
-    "static/js/2.2f5ef2c2.chunk.js.LICENSE.txt": "/static/js/2.2f5ef2c2.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/static/media/logo.5d5d9eef.svg"
+    "main.css": "/Conways_Game_of_Life/static/css/main.e54cd442.chunk.css",
+    "main.js": "/Conways_Game_of_Life/static/js/main.6412cc6b.chunk.js",
+    "main.js.map": "/Conways_Game_of_Life/static/js/main.6412cc6b.chunk.js.map",
+    "runtime-main.js": "/Conways_Game_of_Life/static/js/runtime-main.17a38695.js",
+    "runtime-main.js.map": "/Conways_Game_of_Life/static/js/runtime-main.17a38695.js.map",
+    "static/js/2.8d273eb4.chunk.js": "/Conways_Game_of_Life/static/js/2.8d273eb4.chunk.js",
+    "static/js/2.8d273eb4.chunk.js.map": "/Conways_Game_of_Life/static/js/2.8d273eb4.chunk.js.map",
+    "index.html": "/Conways_Game_of_Life/index.html",
+    "precache-manifest.403191d947a0e9297cb496e6955fe997.js": "/Conways_Game_of_Life/precache-manifest.403191d947a0e9297cb496e6955fe997.js",
+    "service-worker.js": "/Conways_Game_of_Life/service-worker.js",
+    "static/css/main.e54cd442.chunk.css.map": "/Conways_Game_of_Life/static/css/main.e54cd442.chunk.css.map",
+    "static/js/2.8d273eb4.chunk.js.LICENSE.txt": "/Conways_Game_of_Life/static/js/2.8d273eb4.chunk.js.LICENSE.txt",
+    "static/media/clear-icon.png": "/Conways_Game_of_Life/static/media/clear-icon.8d45ef69.png",
+    "static/media/github-logo.JPG": "/Conways_Game_of_Life/static/media/github-logo.dd529c5f.JPG"
   },
   "entrypoints": [
-    "static/js/runtime-main.7c0ae09a.js",
-    "static/js/2.2f5ef2c2.chunk.js",
-    "static/css/main.523f09c5.chunk.css",
-    "static/js/main.e13d1641.chunk.js"
+    "static/js/runtime-main.17a38695.js",
+    "static/js/2.8d273eb4.chunk.js",
+    "static/css/main.e54cd442.chunk.css",
+    "static/js/main.6412cc6b.chunk.js"
   ]
 }
