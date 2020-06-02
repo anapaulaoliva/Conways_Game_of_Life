@@ -161,8 +161,13 @@ const Board = () => {
                 )}
             </main>
 
+            <section>
+                <span>g e n</span>
+                <div className={ControlsStyle.Gen}></div>
+            </section>
+
             <button onClick={() => {
-            
+                //modal with information
             }}
             >
                 <FontAwesomeIcon 
