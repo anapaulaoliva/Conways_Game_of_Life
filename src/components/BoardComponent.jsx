@@ -68,7 +68,7 @@ const Board = () => {
                         //Conditional for the "birth" of a cell
                         } else if (g[i][j] == 0 && neighbors == 3) {
                             //current position lives.
-                            gridCopy[i][k] = 1;
+                            gridCopy[i][j] = 1;
                         }
 
                     }
@@ -83,6 +83,12 @@ const Board = () => {
         <>
             <button onClick={()=>{
                 setRunning(!running);
+                /*checking through button's state to switch between true or false
+                given the actual state -ref- of the button*/
+                if(!running){
+                    runningRef.current = true;
+                    runSimulation();
+                }
                 }}
             >
             {running ? 'stop' : 'start'}
