@@ -1,0 +1,17 @@
+.Controls {
+    min-width: 20vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.CleanIcon {
+    width: 25px;
+    height: 25px;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faRandom, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import ClearIcon from '../assets/clear-icon.png';
 import BoardStyle from '../styles/Board.module.css';
+import ControlsStyle from '../styles/Controls.module.css';
 
 
 const Board = () => {
@@ -90,7 +91,7 @@ const Board = () => {
 
     return (
         <>  
-            <section className={BoardStyle.Controls}>
+            <section className={ControlsStyle.Controls}>
                 <button onClick={()=>{
                     setRunning(!running);
                     /*checking through button's state to switch between true or false
@@ -131,7 +132,7 @@ const Board = () => {
                     setGrid(generateEmptyGrid());
                 }}>
                     <img
-                        className={BoardStyle.CleanIcon}
+                        className={ControlsStyle.CleanIcon}
                         src={ClearIcon}
                         alt="clear-icon"
                     />
@@ -167,7 +168,7 @@ const Board = () => {
                 <FontAwesomeIcon 
                     icon={ faInfoCircle } 
                     size="lg"
-                    style={{color: "#845ef7"}}
+                    style={{color: "lavenderblush"}}
                 />
             </button>
         </>
