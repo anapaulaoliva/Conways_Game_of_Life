@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import produce from 'immer';
 import BoardStyle from '../styles/Board.module.css';
 
 const Board = () => {
@@ -25,6 +26,12 @@ const Board = () => {
                     <div
                     className={BoardStyle.cell}
                     key={`${i}-${j}`} 
+                    onClick={() => {
+                        const newGrid = produce(grid, gridCopy => {
+                            gridCopy[i][j] = 1;
+                        });
+                        setGrid(newGrid);
+                    }}
                     style={{
                         backgroundColor: grid[i][j] ? 'pink' : undefined
                     }} 
