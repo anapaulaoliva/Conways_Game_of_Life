@@ -1,0 +1,15 @@
+footer {
+    display: flex;
+    flex-direction: wrap column;
+    margin: 0;
+}
+
+.ghLogo {
+    width: 30px;
+    height: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
