@@ -12,5 +12,10 @@ main {
     width: 15;
     height: 15;
     border: solid 1px rgb(54, 53, 90);
+    cursor: pointer;
 }
+.Cell:hover {
+    background-color: hsl(242, 24%, 46%);
+}
+
 
