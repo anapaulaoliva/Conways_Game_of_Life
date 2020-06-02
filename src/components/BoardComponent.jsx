@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import produce from 'immer';
 import BoardStyle from '../styles/Board.module.css';
 
@@ -16,6 +16,17 @@ const Board = () => {
     });
 
     const [running, setRunning] = useState(false);
+
+    const runningRef = useRef(running);
+    runningRef.current = running;
+
+    const runSimulation = useCallback(() => {
+        if (!runningRef.current) {
+            return;
+        }
+        //simulate
+        setTimeout(runSimulation, 1000);
+    }, []);
 
     return (
         <>
