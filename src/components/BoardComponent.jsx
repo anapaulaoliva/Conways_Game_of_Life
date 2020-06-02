@@ -29,7 +29,14 @@ const Board = () => {
         [-1, 0]
     ]
 
-    const [grid, setGrid] = useState(Array(numRows).fill(Array(numCols).fill(0)));
+
+    const generateEmptyGrid = () => {
+        return Array(numRows).fill(Array(numCols).fill(0));
+    };
+    
+    const [grid, setGrid] = useState( ()=> {;
+        return generateEmptyGrid();
+    });
 
     const [running, setRunning] = useState(false);
 
@@ -123,7 +130,11 @@ const Board = () => {
                             runSimulation();
                             break;
                     }
-                }}
+                    /*if(!running){
+                        runningRef.current = true;
+                        runSimulation();
+                    }*/
+                    }}
                 >
                 {   //Dynamic rendering of play/pause button
                     running ? <FontAwesomeIcon 
@@ -156,7 +167,7 @@ const Board = () => {
                 </button>
 
                 <button onClick={()=>{
-                    setGrid(Array(numRows).fill(Array(numCols).fill(0)));
+                    setGrid(generateEmptyGrid());
                     setGeneration(counter = 0);
                 }}>
                     <img
