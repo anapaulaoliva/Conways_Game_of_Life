@@ -29,15 +29,12 @@ Each counter with four or more neighbors dies (is removed) from overpopulation. 
 
 ![3](https://user-images.githubusercontent.com/56927809/83445086-f761c300-a411-11ea-99ad-4bb794184d74.JPG)
 
-<<<<<<< HEAD
 ### Prototype 
 
 Made with Figma. Helps to the process of building component's and view of the game.
 
 ![prototype](https://user-images.githubusercontent.com/56927809/83457935-3c442480-a427-11ea-94bc-8b71729e90f7.JPG)
 
-=======
->>>>>>> Adding basic rules explanation / diagram flow
 ### Diagram Flow 
 
 Made with LudidChart. You can find the link [here](https://bit.ly/36PdlmV).
