@@ -33,7 +33,7 @@ const Board = () => {
                         setGrid(newGrid);
                     }}
                     style={{
-                        backgroundColor: grid[i][j] ? 'pink' : undefined
+                        backgroundColor: grid[i][j] ? 'lavenderblush' : undefined
                     }} 
                     />
                 ))
