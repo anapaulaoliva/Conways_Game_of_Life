@@ -114,6 +114,27 @@ const Board = () => {
         setGeneration(counter = 0);
     };
 
+    const myFunction = () => {
+        console.log('ejecuta funcion')
+    };
+
+    grid.map((rows, i) =>
+    rows.map((col, j) => (
+        //rendering each cell square
+        <div
+            className={BoardStyle.Cell}
+            key={`${i}-${j}`} 
+            style={{ backgroundColor: grid[i][j] ? 'lavenderblush' : undefined }} 
+            onClick={() => {
+                const newGrid = produce(grid, gridCopy => {
+                gridCopy[i][j] = 1;
+            })
+            setGrid(newGrid);
+    }}
+/>
+    ))
+    )
+
     return (
         <>
             <Controls
@@ -121,27 +142,9 @@ const Board = () => {
                     simulate: simulateButton,
                     random: randomizeButton,
                     clear: clearButton
-                }}
-            />
+                }}/>
 
-            <main style={{ gridTemplateColumns: `repeat(${numCols}, 15px)`}}>
-                {grid.map((rows, i) =>
-                    rows.map((col, j) => (
-                        //rendering each cell square
-                        <div
-                            className={BoardStyle.Cell}
-                            key={`${i}-${j}`} 
-                            style={{ backgroundColor: grid[i][j] ? 'lavenderblush' : undefined }} 
-                            onClick={() => {
-                                const newGrid = produce(grid, gridCopy => {
-                                    gridCopy[i][j] = 1;
-                                })
-                                setGrid(newGrid);
-                            }}
-                        />
-                    ))
-                )}
-            </main>
+            <main className={BoardStyle.Grid}> {myFunction()} </main>
 
             {/*Generation counter section*/}
             <div className={BoardStyle.GenCounter}>
