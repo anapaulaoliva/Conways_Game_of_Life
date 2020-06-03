@@ -42,15 +42,13 @@ Made with LudidChart. You can find the link [here](https://bit.ly/36PdlmV).
 
 ### Demo
 
-##### Mobile
+#### Mobile
 ![mobilegif](https://user-images.githubusercontent.com/56927809/83594824-d5f1fb80-a525-11ea-8567-54cefad8ca72.gif)
 
-##### Desktop
+#### Desktop
 ![automatcellsgif](https://user-images.githubusercontent.com/56927809/83489804-9e774680-a474-11ea-8c83-a245c34bcda5.gif)
 
-##### Resources & Used Technologies
-
-- MATHEMATICAL GAMES:The fantastic combinations of John Conway's new solitaire game "life". (https://www.ibiblio.org/lifepatterns/october1970.html)
+##### Used Technologies
 
 - ES6
 - [ReactJS/Hooks](https://reactjs.org/)
@@ -58,3 +56,8 @@ Made with LudidChart. You can find the link [here](https://bit.ly/36PdlmV).
 - [Jest-DOM](https://testing-library.com/docs/ecosystem-jest-dom)
 - [Styled-components](https://styled-components.com/)
 - [FontAwesome](https://fontawesome.com/)
+
+##### Resources
+
+- MATHEMATICAL GAMES:The fantastic combinations of John Conway's new solitaire game "life". (https://www.ibiblio.org/lifepatterns/october1970.html)
+
