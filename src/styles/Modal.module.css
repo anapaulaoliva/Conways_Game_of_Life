@@ -39,6 +39,16 @@ img {
     height: 1.5vw;
 }
 
+.Link {
+    color: rgb(105, 59, 212);
+}
+
+p {
+    font-size: 1em;
+}
+
+/*mobile media queries */
+
 @media (max-width: 460px) {
     .Dialog {
         top: 40%;
