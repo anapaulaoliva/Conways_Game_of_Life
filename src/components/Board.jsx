@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useRef } from 'react';
 import produce from 'immer';
-import Controls from './ControlsComponent';
+import Controls from './Controls/Controls';
 import BoardStyle from '../styles/Board.module.css';
 
 const Board = () => {
@@ -135,7 +135,7 @@ const Board = () => {
     };
 
     return (
-        <>  
+        <>
             <Controls
                 handlers={{
                     simulate: simulateButton,
@@ -163,10 +163,11 @@ const Board = () => {
                     ))
                 )}
             </main>
-
-            <span>g e n</span>
-            <div className={BoardStyle.Gen}>
-                <p> { generation } </p>
+            <div className={BoardStyle.GenCounter}>
+                <span>g e n</span>
+                <div className={BoardStyle.Gen}>
+                    <p> { generation } </p>
+                </div>
             </div>
         </>
     );

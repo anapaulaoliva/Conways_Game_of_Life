@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import Controls from './ControlsComponent';
+import Controls from './Controls';
 
 describe('test suite for controls components -', () => {
     test('description that helps to understand how the component works', () => {

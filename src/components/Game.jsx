@@ -1,6 +1,6 @@
 import React from 'react';
-import Board from './BoardComponent';
-import Modal from './ModalComponent';
+import Board from './Board';
+import Modal from './Modal';
 import '../App.css';
 
 const Game = () => {

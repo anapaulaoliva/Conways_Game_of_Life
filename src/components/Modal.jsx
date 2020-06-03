@@ -14,6 +14,7 @@ const Modal = () => {
                 setIsModalOpen(true)
             }}>
                 <FontAwesomeIcon 
+                    className={ModalStyle.InfoIcon}
                     icon={ faInfoCircle } 
                     size="lg"
                     style={{color: "lavenderblush"}}
@@ -28,12 +29,12 @@ const Modal = () => {
                             Conway's Game of Life
                             <span role="img" aria-label="tada">🎉</span>
                         </h1>
-                        <p style={{fontSize:"1em"}}>
-                            <h3>To:</h3> <br/>
-                            Pause/Resume press the <FontAwesomeIcon icon={faPlay}/> button. <br/>
-                            Create random life press the <FontAwesomeIcon icon={faRandom}/> button. <br/>
-                            Clear the board press the <img src={CleanIcon} alt="clean-icon"/> button. <br/>
-                        </p>
+                        <h3>To:</h3> <br/>
+                            <p style={{fontSize:"1em"}}>
+                                Pause/Resume press the <FontAwesomeIcon icon={faPlay}/> button. <br/>
+                                Create random life press the <FontAwesomeIcon icon={faRandom}/> button. <br/>
+                                Clear the board press the <img src={CleanIcon} alt="clean-icon"/> button. <br/>
+                            </p>
                         <h4>For the rules and for more fun shapes:</h4>
                                 <a 
                                     href="https://bit.ly/36VVFGn" 

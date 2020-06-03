@@ -6,6 +6,7 @@ main {
     min-height: 30vw;
     border-radius: 10px;
     margin: .3em;
+    
 }
 
 .Cell {
@@ -31,15 +32,36 @@ button {
     border-radius: 10px;
     min-width: 4vw;
     min-height: 1vw;
-    margin: .5em;
 }
 
 span {
     font-size: 10px;
-
 }
 
 p{
     font-size: 10px;
 }
 
+@media (max-width: 460px) {
+    main {
+        width: auto;
+        height: 75vw;
+    }
+
+    .Gen {
+        width: 20vw;
+        margin: auto;
+    }
+
+    .GenCounter {
+        padding: 1em;
+    }
+
+    span {
+        font-size: 3.5vw;
+    }
+    
+    p {
+        font-size: 4vw;
+    }
+}

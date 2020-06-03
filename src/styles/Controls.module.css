@@ -16,3 +16,8 @@ button {
     cursor: pointer;
 }
 
+@media (max-width: 460px) {
+    .Controls {
+        min-width: 70vw;
+    }
+}

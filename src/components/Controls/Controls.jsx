@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faPause, faRandom } from '@fortawesome/free-solid-svg-icons';
-import ClearIcon from '../assets/clear-icon.png';
-import ControlsStyle from '../styles/Controls.module.css';
+import ClearIcon from '../../assets/clear-icon.png'
+import ControlsStyle from '../../styles/Controls.module.css';
 
 const Controls = ({handlers}) => {
     const { simulate, random, clear } = handlers;
