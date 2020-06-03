@@ -5,17 +5,20 @@ import ClearIcon from '../../assets/clear-icon.png'
 import ControlsStyle from '../../styles/Controls.module.css';
 
 const Controls = ({handlers}) => {
+    //asignment of handling events values
     const { simulate, random, clear } = handlers;
-    const [simulateIsActive, setSimulateIsActive] = useState(true); 
+    const [simulationIsActive, setSimulationIsActive] = useState(true); 
+
+    const runSimulation = () => {
+        setSimulationIsActive(!simulationIsActive)
+        simulate();
+    };
 
     return(
         <section className={ControlsStyle.Controls}>
-            <button onClick={ () => {
-                setSimulateIsActive(!simulateIsActive)
-                simulate();
-                }}>
-
-                {simulateIsActive ? 
+            <button onClick={runSimulation}>
+            
+                {simulationIsActive ? 
                     <FontAwesomeIcon 
                         icon={faPlay}
                         size="lg" 
