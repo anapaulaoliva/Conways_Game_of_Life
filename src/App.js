@@ -1,6 +1,6 @@
 import React from 'react';
-import Game from './components/GameComponent';
-import Footer from './components/FooterComponent';
+import Game from './components/Game';
+import Footer from './components/Footer';
 
 function App() {
   return (

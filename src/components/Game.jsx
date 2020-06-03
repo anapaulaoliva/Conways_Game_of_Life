@@ -1,5 +1,6 @@
 import React from 'react';
-import Board from './BoardComponent';
+import Board from './Board';
+import Modal from './Modal';
 import '../App.css';
 
 const Game = () => {
@@ -7,6 +8,7 @@ const Game = () => {
         <>
         <div className="App">
             <Board/>
+            <Modal/>
         </div>
         </>
     );
