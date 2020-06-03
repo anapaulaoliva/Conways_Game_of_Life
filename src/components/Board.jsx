@@ -4,9 +4,11 @@ import Controls from './Controls/Controls';
 import BoardStyle from '../styles/Board.module.css';
 
 const Board = () => {
+    //setting by default size of the grid
     const numRows = 30;
     const numCols = 30;
 
+    //setting gen counter
     let counter = 0;
     const [generation, setGeneration] = useState(counter);
 
@@ -23,28 +25,36 @@ const Board = () => {
         [-1, 0]
     ];
 
+    //generates bidimensional array
     const generateEmptyGrid = () => {
         return Array(numRows).fill(Array(numCols).fill(0));
     };
-    
+
+    //sets initial state of the grid
     const [grid, setGrid] = useState( ()=> {
         return generateEmptyGrid();
     });
 
+    //sets state for the simulation function call
     const [running, setRunning] = useState(false);
 
+    //sets current value of the simulation as a stored value
     const runningRef = useRef(running);
     runningRef.current = running;
 
+    //por que use un callback
     const runSimulation = useCallback(() => {
+        //each time runSimulation is called gen amount goes ++;
         setGeneration(counter);
-        counter++;        
+        counter++;
+        //checking current state of the simulation     
         if (!runningRef.current) {
             return;
         }
         //update state of g: current value of the grid
         setGrid((g) => {
             //gridCopy expected to conserve original grid
+            
             return produce(g, gridCopy => {
                 //for loops go through every single cell of the grid
                 for (let i = 0; i < numRows; i++) {
@@ -53,6 +63,7 @@ const Board = () => {
                         let neighbors = 0;
                         //checking each condition given in the array
                         operations.forEach(([x,y]) => {
+                            //new neighbors with coordinates
                             const newI = i + x;
                             const newJ = j + y;
                             //conditionals to delimitate checking above or below the grid values
@@ -79,10 +90,12 @@ const Board = () => {
     }, []);
 
     const simulateButton = () => {
+        //changes the state true/false of the simulation
         setRunning(!running);
-        /*checking playbtn state given the actual state -ref- of the button*/
-        switch(!running) {
-            case (!running): runningRef.current = true; runSimulation(); break;
+        //checking playbtn state given the actual state -ref- of the button
+        if(!running) {
+            runningRef.current = true; 
+            runSimulation();
         }
     };
 
@@ -129,7 +142,8 @@ const Board = () => {
                     ))
                 )}
             </main>
-            
+
+            {/*Generation counter section*/}
             <div className={BoardStyle.GenCounter}>
                 <span>g e n</span>
                 <div className={BoardStyle.Gen}>

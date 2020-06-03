@@ -1,14 +1,17 @@
 import React from 'react';
-import Game from './components/Game';
+import Board from '../src/components/Board';
+import Modal from '../src/components/Modal';
 import Footer from './components/Footer';
+import './App.css';
 
 function App() {
   return (
-      <div className="App">
-        <header>Game of Life</header>
-        <Game/>
+    <div className="container">
+      <h1>The Game of Life</h1>
+        <Board/>
+        <Modal/>
         <Footer/>
-      </div>
+    </div>
   );
 }
 
