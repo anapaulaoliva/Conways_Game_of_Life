@@ -26,7 +26,6 @@ const Board = () => {
     const runningRef = useRef(running);
     runningRef.current = running;
 
-    //por que use un callback
     const runSimulation = useCallback(() => {
         //each time runSimulation is called gen amount goes ++;
         setGeneration(gen);
