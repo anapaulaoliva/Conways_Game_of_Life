@@ -1,32 +1,77 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import produce from 'immer';
 import Controls from './Controls/Controls';
 import BoardStyle from '../styles/Board.module.css';
+
+const COORDINATES = [
+    [0, 1],
+    [0, -1],
+    [1, -1],
+    [-1, 1],
+    [1, 1],
+    [-1, -1],
+    [1, 0],
+    [-1, 0]
+];
+
+const INTERVAL = 200;
+
+let timerSimulation = null;
 
 const Board = () => {
         const rows = 30;
         const cols = 30;
         let gen = 0;
-        const coordinates = [
-            [0, 1],
-            [0, -1],
-            [1, -1],
-            [-1, 1],
-            [1, 1],
-            [-1, -1],
-            [1, 0],
-            [-1, 0]
-        ];
 
     const [generation, setGeneration] = useState(0);
-    const [grid, setGrid] = useState(Array(rows).fill(Array(cols).fill(0)));
+    const gridState = useState(Array(rows).fill(Array(cols).fill(0)));
+    const setGrid = gridState[1];
+    let grid = gridState[0];
+    console.log(grid);
     const [running, setRunning] = useState(false);
 
     //sets current value of the simulation as a stored value
     const runningRef = useRef(running);
     runningRef.current = running;
 
-    const runSimulation = useCallback(() => {
+    const calculateGrid = () => {
+            let newGrid = [...grid];
+            //for loops go through every single cell of the grid
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols; j++) {
+                    //compute neighbors
+                    let neighbors = 0;
+                    //checking each condition given in the array
+                    COORDINATES.forEach(([row,col]) => {
+                        //new neighbors with coordinates
+                        const neighborRow = i + row;
+                        const neighborColumn = j + col;
+                        //conditionals to delimitate checking above or below the grid values
+                        if (
+                            neighborRow >= 0 && 
+                            neighborRow < rows && 
+                            neighborColumn >= 0 && 
+                            neighborColumn < cols
+                            ) {
+                                //counter of how many neighbors the cell has
+                                neighbors += grid[neighborRow][neighborColumn];
+                            }
+                    })
+                    //Conditional for the death of a cell
+                    if (neighbors < 2 || neighbors > 3) {
+                        //current position dies.
+                        newGrid[i][j] = 0;
+                    //Conditional for the "birth" of a cell
+                    } else if (grid[i][j] === 0 && neighbors === 3) {
+                        //current position lives.
+                        newGrid[i][j] = 1;
+                    }
+                }
+            }
+            return newGrid;
+    };
+
+    const runSimulation = () => {
         //checking current state of the simulation     
         if (!runningRef.current) {
             return;
@@ -35,54 +80,19 @@ const Board = () => {
         setGeneration(gen);
         gen++;
         //update state of g: current value of the grid
-        setGrid((grid) => {
-            //newGrid expected to conserve original grid
-            return produce(grid, newGrid => {
-                //for loops go through every single cell of the grid
-                for (let i = 0; i < rows; i++) {
-                    for (let j = 0; j < cols; j++) {
-                        //compute neighbors
-                        let neighbors = 0;
-                        //checking each condition given in the array
-                        coordinates.forEach(([row,col]) => {
-                            //new neighbors with coordinates
-                            const neighborRow = i + row;
-                            const neighborColumn = j + col;
-                            //conditionals to delimitate checking above or below the grid values
-                            if (
-                                neighborRow >= 0 && 
-                                neighborRow < rows && 
-                                neighborColumn >= 0 && 
-                                neighborColumn < cols
-                                ) {
-                                    //counter of how many neighbors the cell has
-                                    neighbors += grid[neighborRow][neighborColumn];
-                                }
-                        })
-                        //Conditional for the death of a cell
-                        if (neighbors < 2 || neighbors > 3) {
-                            //current position dies.
-                            newGrid[i][j] = 0;
-                        //Conditional for the "birth" of a cell
-                        } else if (grid[i][j] === 0 && neighbors === 3) {
-                            //current position lives.
-                            newGrid[i][j] = 1;
-                        }
-                    }
-                }
-            });
-        });
-        //calling the function itself each 200ms        
-        setTimeout(runSimulation, 200);
-    }, []);
+        const newGrid = calculateGrid();
+        setGrid(newGrid);
+    };
 
     const simulateButton = () => {
         //changes the state true/false of the simulation
         setRunning(!running);
         //checking playbtn state given the actual state -ref- of the button
         if(!running) {
+            clearInterval(timerSimulation);
             runningRef.current = true; 
             runSimulation();
+            timerSimulation = setInterval(runSimulation, INTERVAL);
         }
     };
 
