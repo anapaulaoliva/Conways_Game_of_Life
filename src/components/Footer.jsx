@@ -4,7 +4,6 @@ import FooterStyle from '../styles/Footer.module.css';
 
 const Footer = () => {
     return (
-        
         <footer className={FooterStyle.Footer}>
                 <img
                     src={ghLogo}

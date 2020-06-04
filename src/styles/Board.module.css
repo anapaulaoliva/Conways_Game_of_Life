@@ -1,4 +1,4 @@
-main {
+.Grid {
     display: grid;
     background-color: rgb(51,50,82);
     border: 8px solid rgb(132,110,141);
@@ -6,6 +6,7 @@ main {
     min-height: 30vw;
     border-radius: 10px;
     margin: .3em;
+    grid-template-columns: repeat(30, 15px);
     
 }
 
