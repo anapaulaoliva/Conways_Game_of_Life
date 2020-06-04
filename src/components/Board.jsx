@@ -92,12 +92,13 @@ const Board = () => {
     };
 
     const randomizeButton = () => {
-        const rows = [];
+        const updatedRows = [];
             for (let i = 0; i < rows; i++) {
-                rows.push(Array.from(Array(cols), () => 
+                updatedRows.push(Array.from(Array(cols), () => 
                     Math.random() > 0.8 ? 1 : 0))
             }
-            setGrid(rows);
+            setGrid(updatedRows);
+            console.log(updatedRows)
             setGeneration(gen = 0);
     };
 
