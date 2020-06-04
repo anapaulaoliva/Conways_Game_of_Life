@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import produce from 'immer';
 import Controls from './Controls/Controls';
 import BoardStyle from '../styles/Board.module.css';
@@ -19,9 +19,9 @@ const INTERVAL = 200;
 let timerSimulation = null;
 
 const Board = () => {
-        const rows = 30;
-        const cols = 30;
-        let gen = 0;
+    const rows = 30;
+    const cols = 30;
+    let gen = 0;
 
     const [generation, setGeneration] = useState(0);
     const [grid, setGrid] = useState(Array(rows).fill(Array(cols).fill(0)));
@@ -125,15 +125,15 @@ const Board = () => {
 
             <main className={BoardStyle.Grid}> 
                 {grid.map((rows, i) =>
-                rows.map((col, j) => (
-                <div
-                className={BoardStyle.Cell}
-                key={`${i}-${j}`} 
-                style={{ backgroundColor: grid[i][j] ? 'lavenderblush' : undefined }} 
-                onClick={()=> updateCellValue(i,j)}
-                />
-                ))
-                )
+                    rows.map((col, j) => (
+                        <div
+                        className={BoardStyle.Cell}
+                        key={`${i}-${j}`} 
+                        style={{ backgroundColor: grid[i][j] ? 'lavenderblush' : undefined }} 
+                        onClick={()=> updateCellValue(i,j)}
+                        />
+                        ))
+                    )
                 }
             </main>
 
