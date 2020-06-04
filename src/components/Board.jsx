@@ -98,7 +98,6 @@ const Board = () => {
                     Math.random() > 0.8 ? 1 : 0))
             }
             setGrid(updatedRows);
-            console.log(updatedRows)
             setGeneration(gen = 0);
     };
 
