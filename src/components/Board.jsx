@@ -106,7 +106,7 @@ const Board = () => {
         setGeneration(gen = 0);
     };
 
-    const myFunction = () => {
+    const updateCellValue = (i,j) => {
         const newGrid = produce(grid, newGrid => {
         newGrid[i][j] = 1;
         })
@@ -129,7 +129,7 @@ const Board = () => {
                 className={BoardStyle.Cell}
                 key={`${i}-${j}`} 
                 style={{ backgroundColor: grid[i][j] ? 'lavenderblush' : undefined }} 
-                onClick={()=> myFunction(i,j)}
+                onClick={()=> updateCellValue(i,j)}
                 />
                 ))
                 )
