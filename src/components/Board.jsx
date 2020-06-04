@@ -19,15 +19,14 @@ const INTERVAL = 200;
 let timerSimulation = null;
 
 const Board = () => {
-        const rows = 30;
-        const cols = 30;
-        let gen = 0;
+    const rows = 30;
+    const cols = 30;
+    let gen = 0;
 
     const [generation, setGeneration] = useState(0);
     const gridState = useState(Array(rows).fill(Array(cols).fill(0)));
     const setGrid = gridState[1];
     let grid = gridState[0];
-    console.log(grid);
     const [running, setRunning] = useState(false);
 
     //sets current value of the simulation as a stored value
@@ -35,7 +34,7 @@ const Board = () => {
     runningRef.current = running;
 
     const calculateGrid = () => {
-            let newGrid = [...grid];
+            let newGrid = JSON.parse(JSON.stringify(grid));
             //for loops go through every single cell of the grid
             for (let i = 0; i < rows; i++) {
                 for (let j = 0; j < cols; j++) {
@@ -56,6 +55,9 @@ const Board = () => {
                                 //counter of how many neighbors the cell has
                                 neighbors += grid[neighborRow][neighborColumn];
                             }
+                        /*neighbors += (g[neighborRow][neighborColumn] !== undefined) 
+                                        ? g[neighborColumn][neighborRow] 
+                                        : 0;*/
                     })
                     //Conditional for the death of a cell
                     if (neighbors < 2 || neighbors > 3) {
@@ -111,7 +113,12 @@ const Board = () => {
         setGeneration(gen = 0);
     };
 
-    const myFunction = () => {
+    const myFunction = (i,j) => {
+            const newGrid = JSON.parse(JSON.stringify(grid));
+            newGrid[i][j] = 1;
+            setGrid(newGrid);
+            console.log(newGrid[i][j]);
+            console.log(grid[i][j]);
     };
 
     return (
@@ -130,12 +137,7 @@ const Board = () => {
                 className={BoardStyle.Cell}
                 key={`${i}-${j}`} 
                 style={{ backgroundColor: grid[i][j] ? 'lavenderblush' : undefined }} 
-                onClick={() => {
-                    const newGrid = produce(grid, newGrid => {
-                    newGrid[i][j] = 1;
-                })
-                    setGrid(newGrid);
-                    }}
+                onClick={() => myFunction(i,j)}
                 />
                 ))
                 )
