@@ -27,17 +27,16 @@ const Board = () => {
     runningRef.current = running;
 
     const runSimulation = useCallback(() => {
-        //each time runSimulation is called gen amount goes ++;
-        setGeneration(gen);
-        gen++;
         //checking current state of the simulation     
         if (!runningRef.current) {
             return;
         }
+        //each time runSimulation is called gen amount goes ++;
+        setGeneration(gen);
+        gen++;
         //update state of g: current value of the grid
         setGrid((grid) => {
             //newGrid expected to conserve original grid
-            
             return produce(grid, newGrid => {
                 //for loops go through every single cell of the grid
                 for (let i = 0; i < rows; i++) {
@@ -47,12 +46,17 @@ const Board = () => {
                         //checking each condition given in the array
                         coordinates.forEach(([row,col]) => {
                             //new neighbors with coordinates
-                            const newI = i + row;
-                            const newJ = j + col;
+                            const neighborRow = i + row;
+                            const neighborColumn = j + col;
                             //conditionals to delimitate checking above or below the grid values
-                            if (newI >= 0 && newI < rows && newJ >= 0 && newJ < cols) {
+                            if (
+                                neighborRow >= 0 && 
+                                neighborRow < rows && 
+                                neighborColumn >= 0 && 
+                                neighborColumn < cols
+                                ) {
                                     //counter of how many neighbors the cell has
-                                    neighbors += grid[newI][newJ];
+                                    neighbors += grid[neighborRow][neighborColumn];
                                 }
                         })
                         //Conditional for the death of a cell
@@ -68,7 +72,7 @@ const Board = () => {
                 }
             });
         });
-        //calling the function itself each 300ms        
+        //calling the function itself each 200ms        
         setTimeout(runSimulation, 200);
     }, []);
 
